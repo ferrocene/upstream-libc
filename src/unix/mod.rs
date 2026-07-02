@@ -2148,7 +2148,7 @@ cfg_if! {
     if #[cfg(not(any(
         target_os = "emscripten",
         target_os = "android",
-        target_os = "nto"
+        target_os = "nto",
         target_os = "qnx"
     )))] {
         extern "C" {
