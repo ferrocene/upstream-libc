@@ -897,12 +897,14 @@ pub const SCM_TIMESTAMP: c_int = 0x02;
 // QNX Network Stack Versioning:
 //
 // The `if` block targets the legacy `io-pkt` stack.
-// - target_env = "nto70": QNX 7.0
-// - target_env = "nto71": Standard QNX 7.1 (default legacy stack)
+// - target_os = "nto"
+//   - target_env = "nto70": QNX SDP 7.0
+//   - target_env = "nto71": Standard QNX SDP 7.1 (default legacy stack)
 //
 // The `else` block targets the modern `io-sock` stack.
-// - target_env = "nto71_iosock": QNX 7.1 with the optional new stack
-// - target_env = "nto80": QNX 8.0
+// - target_os = "nto"
+//   - target_env = "nto71_iosock": QNX SDP 7.1 with the optional new stack
+// - target_os = "qnx": QNX SDP 8.0
 cfg_if! {
     if #[cfg(any(target_env = "nto70", target_env = "nto71"))] {
         pub const SCM_CREDS: c_int = 0x04;
